@@ -24,7 +24,6 @@ namespace VideoJetApp.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
-
         private readonly FileBrowserService fileBrowserService;
         private readonly ConnectionService _connectionService;
         //private Window _currentWindow;
@@ -35,9 +34,6 @@ namespace VideoJetApp.ViewModels
         public ICommand ConnectCommand { get; }
         public ICommand StartCommand { get; }
         public ICommand SendCommand { get; }
-
-
-
 
         private DataTable fileData;
         public DataTable FileData
@@ -53,21 +49,6 @@ namespace VideoJetApp.ViewModels
             set { fileName = value; OnPropertyChanged(nameof(FileName)); }
         }
 
-        //private string ipAddress;
-        //public string IpAddress
-        //{
-        //    get { return ipAddress; }
-        //    set { ipAddress = value; OnPropertyChanged(nameof(IpAddress)); }
-        //}
-
-        //private int port;
-
-        //public int Port
-        //{
-        //    get { return port; }
-        //    set { port = value; OnPropertyChanged(nameof(Port)); }
-        //}
-
         private string connectionstatus;
 
         public string ConnectionStatus
@@ -75,8 +56,6 @@ namespace VideoJetApp.ViewModels
             get { return connectionstatus; }
             set { connectionstatus = value; OnPropertyChanged(nameof(ConnectionStatus)); }
         }
-
-
 
         public DashboardViewModel()
         {
@@ -86,6 +65,7 @@ namespace VideoJetApp.ViewModels
 
             fileBrowserService = new FileBrowserService();
             BrowseFileCommand = new RelayCommand(BrowseFile);
+            _connectionService = App.ConnectionService;
 
             //ConnectCommand = new RelayCommand(ConnectToServer);
             StartCommand = new RelayCommand(SendStartCommand);
@@ -100,44 +80,7 @@ namespace VideoJetApp.ViewModels
 
             FileData = fileBrowserService.BrowseAndReadFile();
             FileName = fileBrowserService.SelectedFileName;
-
-            //var dataTable = fileBrowserService.BrowseAndReadFile();
-            //if (dataTable != null)
-            //{
-            //    FileName = fileBrowserService.SelectedFileName;
-            //    FileData = dataTable;
-            //}
         }
-
-        //private void SignOut()
-        //{
-
-        //    var result = MessageBox.Show("Are you sure you want to sign out?", "Confirm Sign Out", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-        //    if (result == MessageBoxResult.Yes)
-        //    {
-        //        var loginWindow = new VideoJetApp.MainWindow();
-        //        loginWindow.Show();
-        //    }
-        //    _currentWindow.Close();
-        //}
-
-        //private void ConnectToServer()
-        //{
-        //    bool isConnected = _connectionService.Connect(IpAddress, Port);
-        //    ConnectionStatus = _connectionService.ConnectionStatus;
-
-        //    if (isConnected)
-        //    {
-        //        // Optionally, you can update the UI to show that the connection was successful
-        //        ConnectionStatus = "Connected";
-        //    }
-        //    else
-        //    {
-        //        // Handle the failed connection case, e.g., show an error message
-        //        ConnectionStatus = "Failed to connect";
-        //    }
-        //}
 
         private void SendStartCommand()
         {

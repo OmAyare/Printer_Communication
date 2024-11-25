@@ -45,8 +45,6 @@ namespace VideoJetApp.ViewModels
             ShowSettingsCommand = new RelayCommand(ShowSettings);
             SignOutCommand = new RelayCommand(SignOut);
 
-            // Default to Dashboard view
-            //CurrentView = new View.Dashboard1();
             ShowDashboard();
         }
 

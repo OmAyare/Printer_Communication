@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using VideoJetApp.ViewModels;
 
 namespace VideoJetApp
 {
@@ -13,5 +14,13 @@ namespace VideoJetApp
     /// </summary>
     public partial class App : Application
     {
+        public static ConnectionService ConnectionService { get; private set; }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            ConnectionService = new ConnectionService();
+        }
+
     }
 }
