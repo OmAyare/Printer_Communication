@@ -50,7 +50,6 @@ namespace VideoJetApp.ViewModels
         public Settings()
         {
             connectionService = App.ConnectionService;
-          //  connectionService = new ConnectionService();
             ConnectCommand = new RelayCommand(ConnectToServer);
             ConnectionStatus = "Disconnected";
 

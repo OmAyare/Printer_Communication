@@ -52,5 +52,6 @@ namespace VideoJetApp.ViewModels
                 throw ex;
             }
         }
+
     }
 }

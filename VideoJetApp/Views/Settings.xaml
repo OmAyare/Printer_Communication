@@ -5,35 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:VideoJetApp.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Grid.Row="0"
-      Grid.Column="1"
-      Background="#ecf0f5">
+             d:DesignHeight="450" d:DesignWidth="800" Background="White" >
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Vertical" Grid.Row="1"  HorizontalAlignment="Left" Margin="150,100,25,180">
+        <TextBlock Text="IpSetting:" FontSize="30" FontWeight="SemiBold" Margin="5,5,5,5"/>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="500">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="IP Address:" Margin="10,10,0,10" Width="90" Height="30" HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold"/>
+                <TextBox Name="IpAddresstxt" Width="150" Height="25" HorizontalAlignment="Left" Margin="5,10,0,10" Text="{Binding IpAddress, UpdateSourceTrigger=PropertyChanged}" />
+                <Label Content="Port:"  Margin="30,10,0,10" Width="50" Height="30" HorizontalAlignment="Left" FontSize="14" FontWeight="SemiBold" />
+                <TextBox Name="Porttxt" Width="140" Height="25" HorizontalAlignment="Left" Margin="5,10,0,10" Text="{Binding Port, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
 
-            <Label Content="IP Address" FontSize="16" Height="30" Width="100" />
-            <TextBox Name="txtip" Height="25" Width="100" Text="{Binding IpAddress, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Name="ConnectionStatustxt" Width="135" Height="25" HorizontalAlignment="Left" Margin="100,40,0,10" Text="{Binding ConnectionStatus, UpdateSourceTrigger=PropertyChanged}" Foreground="Green" />
+                <Button Content="Connect" Height="25" Width="100" Margin="20,40,0,10"  Command="{Binding ConnectCommand}" />
+            </StackPanel>
 
         </StackPanel>
-
-        <StackPanel Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Left" Margin="290,100,25,180"  >
-
-            <Label Content="Port" FontSize="16" Height="30"  Width="100"/>
-            <TextBox Name="txtport" Height="25" Width="100" Text="{Binding Port, UpdateSourceTrigger=PropertyChanged}"  />
-
-        </StackPanel>
-
-
-        <Grid Grid.Row="2">
-            <TextBlock Text="{Binding ConnectionStatus,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Green"/>
-
-            <Button Content="Connect" HorizontalAlignment="Right" Width="65" Command="{Binding ConnectCommand}"/>
-        </Grid>
 
     </Grid>
 </UserControl>

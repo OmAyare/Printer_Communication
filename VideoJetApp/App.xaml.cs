@@ -16,9 +16,8 @@ namespace VideoJetApp
     {
         public static ConnectionService ConnectionService { get; private set; }
 
-        protected override void OnStartup(StartupEventArgs e)
+        public App()
         {
-            base.OnStartup(e);
             ConnectionService = new ConnectionService();
         }
 

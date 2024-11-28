@@ -59,15 +59,14 @@ namespace VideoJetApp.ViewModels
 
         public DashboardViewModel()
         {
-            _connectionService = new ConnectionService();
+           //_connectionService = new ConnectionService();
 
             //SignOutCommand = new RelayCommand(SignOut);
 
             fileBrowserService = new FileBrowserService();
             BrowseFileCommand = new RelayCommand(BrowseFile);
-            _connectionService = App.ConnectionService;
+           _connectionService = App.ConnectionService;
 
-            //ConnectCommand = new RelayCommand(ConnectToServer);
             StartCommand = new RelayCommand(SendStartCommand);
             SendCommand = new RelayCommand(SendRowToServer);
 

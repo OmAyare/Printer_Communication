@@ -23,7 +23,6 @@ namespace VideoJetApp
         public BtnController()
         {
             InitializeComponent();
-          //  this.DataContext = new VideoJetApp.ViewModels.DashboardViewModel(`);
           this .DataContext = new BtnViewModel();
         }
     }
